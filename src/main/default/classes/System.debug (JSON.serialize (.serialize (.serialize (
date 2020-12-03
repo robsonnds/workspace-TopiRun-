@@ -1,0 +1,5 @@
+System.debug (JSON.serialize (
+    new AccountRepository().findByName('Bisso') ) ) ;
+
+System.debug (JSON.serialize (
+    new AccountRepository().findWithContactsByName('%Uni%') ) ) ;
