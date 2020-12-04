@@ -1,4 +1,3 @@
-
 public virtual class AccountRepository {
 
     virtual
@@ -8,8 +7,6 @@ public virtual class AccountRepository {
         , BillingPostalCode, BillingCountry, CreatedDate
          FROM Account
          Where Name like :name ];
-
-
 
 
     }
@@ -23,9 +20,29 @@ public virtual class AccountRepository {
          FROM Account
          Where Name like :name ];
 
+    }
 
+    virtual
+    public List<Account> create (List<Account> accounts){
+       
+        insert accounts;
+        return accounts;
 
+    }
 
+    virtual   
+    public List<Account> store (List<Account> accounts){
+       
+        update accounts;
+        return accounts;
+
+    }
+    
+    virtual
+    public void remove (List<Account> accounts){
+       
+        delete accounts;
+     
     }
     
 }
