@@ -48,7 +48,7 @@ public virtual with sharing class AccountTH extends TriggerHandler {
     override
     public void beforeUpdate() {
 
-         validateDocumentNumber();
+        validateDocumentNumber();
 
     }
 
@@ -66,8 +66,8 @@ public virtual with sharing class AccountTH extends TriggerHandler {
 
         System.debug('Trigger de Conta acionada' + Trigger.operationType );
 
-         System.debug(JSON.serialize ( newAccounts ) );
-         System.debug(JSON.serialize  ( oldAccounts ) );
+        System.debug(JSON.serialize ( newAccounts ) );
+        System.debug(JSON.serialize  ( oldAccounts ) );
          
 
     }
@@ -75,7 +75,7 @@ public virtual with sharing class AccountTH extends TriggerHandler {
     virtual
     public void validateDocumentNumber(){
 
-    List<Account> filterdAccounts = this.filter.filterByChangeDocumentNumber(newAccounts, oldAccounts);
+        List<Account> filterdAccounts = this.filter.filterByChangeDocumentNumber(newAccounts, oldAccounts);
 
         this.validator.validateDocumentNumber(filterdAccounts);
 
