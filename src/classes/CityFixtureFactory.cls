@@ -1,5 +1,5 @@
 @isTest
-public  class CityFixtureFactory {
+public class CityFixtureFactory {
 
     //static SObject newNomeObjeto --> cria a instancia do mesmo 
     //static SObject createNomeObject ---> com os parametros do New chama o insere
@@ -10,7 +10,7 @@ public  class CityFixtureFactory {
     }
 
     public static City__c newCity (String ibge, String city) {
-        return new City__c ( IbgeCode__c = ibge
+        return newCity__c ( IbgeCode__c = ibge
                         , CityName__c = city );
 
     }

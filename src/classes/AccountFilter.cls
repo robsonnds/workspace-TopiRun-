@@ -27,4 +27,23 @@ public with sharing class AccountFilter {
 
         return filteredAccounts;
     }
+
+    public List<Account> filterByCategoryPremiumAndAnnualRevenue(List<Account> newAccounts) {
+
+        List<Account> filteredAccountsPremium = new List<Account>();
+
+        for (Account account : newAccounts) {
+
+            if( String.isEmpty(account.Category__c)) {
+                continue;
+            }
+
+            if( account.Category__c == 'Premium' && account.AnnualRevenue > 1000000) {
+                filteredAccountsPremium.add(account);
+            }
+        }
+
+        return filteredAccountsPremium;
+    }
+
 }

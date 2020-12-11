@@ -21,6 +21,8 @@ public virtual with sharing class AccountTH extends TriggerHandler {
 
     AccountValidator validator;
 
+    EventEnricher eventEnricher;
+
 
     public AccountTH () {
         this ( (List<Account>) Trigger.new, (Map<Id,Account>) Trigger.oldMap );
@@ -55,6 +57,9 @@ public virtual with sharing class AccountTH extends TriggerHandler {
     override
     public void afterInsert(){
 
+
+        filterByCategoryPremiumAndAnnualRevenue();
+
         System.debug('Trigger de Conta acionada' + Trigger.operationType );
         System.debug(JSON.serialize ( newAccounts ) );
 
@@ -78,6 +83,15 @@ public virtual with sharing class AccountTH extends TriggerHandler {
         List<Account> filterdAccounts = this.filter.filterByChangeDocumentNumber(newAccounts, oldAccounts);
 
         this.validator.validateDocumentNumber(filterdAccounts);
+
+    }
+
+    virtual
+    public void filterByCategoryPremiumAndAnnualRevenue(){
+
+        List<Account> filterdAccountsPremium = this.filter.filterByCategoryPremiumAndAnnualRevenue(newAccounts);
+
+        this.eventEnricher.createEventForPremiumAccoun(filterdAccountsPremium);
 
     }
 

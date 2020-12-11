@@ -45,17 +45,6 @@ public  class AccountFilterTest {
         System.assert(filteredAccounts.isEmpty());
 
 
-
-
-
-        
-
-
-
-
-
-
-
     }
 
 }
