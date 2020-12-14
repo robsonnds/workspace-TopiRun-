@@ -3,17 +3,31 @@ public class AccountFixtureFactory {
 
 
     public static Account newAccount ( String name, String documentNumber
-                                     , City__c city, Cnae_c cnae ) {
+                                     , City__c city, Cnae__c cnae ) {
 
         Account account = newAccount (name, documentNumber);
-        account.BillinCity__c = city.Id;
+
+        account.BillingCity = city.Id;
         account.BillinCity__r = city;
         account.Cnae__c = cnae.Id;
         account.Cnae__r = cnae;
+    
+        
 
         return account;
 
     }
+
+    public static Account newAccount (  String category, Decimal annualRevenue) {   
+        return new Account ( Category__c = category
+                            , AnnualRevenue = annualRevenue );
+    }
+
+    public static Account createAccount ( String category, Decimal annualRevenue ) {
+
+        return createAccount(newAccount(category, annualRevenue) );
+    }
+
 
     public static Account newAccount ( String name, String documentNumber ) {
         return new Account ( Name = name
@@ -27,7 +41,7 @@ public class AccountFixtureFactory {
     }
 
     public static Account createAccount ( String name, String documentNumber
-                                     , City__c city, Cnae_c cnae )  {
+                                     , City__c city, Cnae__c cnae )  {
         return createAccount(newAccount(name, documentNumber, city, cnae) );
     }
 
@@ -60,6 +74,9 @@ public class AccountFixtureFactory {
         
         Cnae__c cnae = CnaeFixtureFactory.createCnae ();
         records.put ('cnae', cnae);
+        
+        Account account = createAccount( 'Premium', 150000);
+         records.put ('accoutPremiumEvent', account);
         
         Account account = createAccount('Souza Account', '13508213064', city, cnae);
         records.put ('account', cnae);

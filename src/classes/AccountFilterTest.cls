@@ -47,4 +47,31 @@ public  class AccountFilterTest {
 
     }
 
+    @isTest
+    public void filterByCategoryPremiumAndAnnualRevenue() {
+        
+
+        Map<String, SObject> records = AccountFixtureFactory.createIntegratedScenario();
+
+        List<Account> accounts = new List<Account>{
+
+            (Account) records.get('accoutPremiumEvent')
+            
+
+        };
+
+        AccountFilter filter = new AccountFilter();
+
+
+        List<Account> filteredAccounts = filterByCategoryPremiumAndAnnualRevenue(accounts, null);
+
+
+        System.assertEquals(accounts.size(), filteredAccounts.size());
+
+
+
+    }
+
+
+
 }

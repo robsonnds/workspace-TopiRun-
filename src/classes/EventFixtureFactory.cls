@@ -6,16 +6,24 @@ public  class EventFixtureFactory {
     //static SObject createNomeObject ---> City insere no banco
 
 
-    public static Event newEvent(){
+    public static Event newEvent(String description, String subject , Datetime startDateTime , Datetime endDateTime){
 
-        return  newEvent ( 'teste descricao', 'teste subject', 'Telefônico' );
+        Event event = new Event();
+        
+        event.Description = description;
+        event.Subject = subject;
+        event.StartDateTime = startDateTime;
+        event.EndDateTime = endDateTime.addHours (1);
+
+        //event.contactType__c = contactType__c;
+
+        return  event;
 
     }
-    
 
-    public static Event createEvent(String Description, String Subject String ContactType__c ){
+    public static Event createEvent( String description, String subject , Datetime  startDateTime , Datetime endDateTime ){
 
-        return createEvent (newEvent());
+        return createEvent (newEvent(description, subject, startDateTime, endDateTime ));
 
     }
 
@@ -25,5 +33,7 @@ public  class EventFixtureFactory {
         return event;
 
     }
+
+
 
 }

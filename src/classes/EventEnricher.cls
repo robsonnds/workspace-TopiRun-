@@ -2,10 +2,6 @@ public virtual class EventEnricher {
 
     EventRepository repository;
 
-    List<Account> newAccounts;
-    List<Event> newEvents;
-    
-
     public EventEnricher () {
 
         repository = new EventRepository();
@@ -19,8 +15,8 @@ public virtual class EventEnricher {
 
         event.Description = 'Apresentar o portifolio de Produtos para o novo cliente com enfoque em nossa carteira Premium';
         event.Subject = 'Apresentação instucional dos produtos Premium';
-        event.StartDateTime = account.CreatedDate;
-        event.EndDateTime = account.CreatedDate.addHours(1);
+        event.StartDateTime = System.today();
+        event.EndDateTime = System.today();
         event.WhatId = account.Id;
         event.ContactType__c ='Telefônico';
 
@@ -28,7 +24,7 @@ public virtual class EventEnricher {
 
     }    
 
-        public List<Event> createEventForPremiumAccoun (List<Account> premiumAccounts){
+        public List<Event> createEventForPremiumAccount (List<Account> premiumAccounts){
 
 
             List<Event> events = new List<Event>();
@@ -40,7 +36,9 @@ public virtual class EventEnricher {
     
             }
     
-            return repository.createEvents (events);
+            return repository.createEvents(events);
+
+      
     
 
     }

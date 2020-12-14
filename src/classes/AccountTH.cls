@@ -36,6 +36,7 @@ public virtual with sharing class AccountTH extends TriggerHandler {
         this.oldAccounts = oldAccounts;
         this.filter = new AccountFilter();
         this.validator = new AccountValidator();
+        this.eventEnricher = new EventEnricher();
 
     }
      
@@ -91,7 +92,7 @@ public virtual with sharing class AccountTH extends TriggerHandler {
 
         List<Account> filterdAccountsPremium = this.filter.filterByCategoryPremiumAndAnnualRevenue(newAccounts);
 
-        this.eventEnricher.createEventForPremiumAccoun(filterdAccountsPremium);
+        this.eventEnricher.createEventForPremiumAccount(filterdAccountsPremium);
 
     }
 

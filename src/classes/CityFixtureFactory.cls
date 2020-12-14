@@ -10,7 +10,7 @@ public class CityFixtureFactory {
     }
 
     public static City__c newCity (String ibge, String city) {
-        return newCity__c ( IbgeCode__c = ibge
+        return newCity__c ( ibgeCode__c = ibge
                         , CityName__c = city );
 
     }

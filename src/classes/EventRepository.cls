@@ -8,7 +8,6 @@ public with sharing class EventRepository {
         return events;
 
     }
-
-       
+     
 
 }

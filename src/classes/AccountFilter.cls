@@ -34,16 +34,14 @@ public with sharing class AccountFilter {
 
         for (Account account : newAccounts) {
 
-            if( String.isEmpty(account.Category__c)) {
-                continue;
-            }
-
             if( account.Category__c == 'Premium' && account.AnnualRevenue > 1000000) {
+
                 filteredAccountsPremium.add(account);
             }
         }
 
         return filteredAccountsPremium;
+
     }
 
 }
