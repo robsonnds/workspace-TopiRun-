@@ -11,6 +11,8 @@ public  class EventFixtureFactory {
         Event event = new Event();
         
         event.Description = description;
+        
+
         event.Subject = subject;
         event.StartDateTime = startDateTime;
         event.EndDateTime = endDateTime.addHours (1);
@@ -34,6 +36,15 @@ public  class EventFixtureFactory {
 
     }
 
+    public static Map<String, SObject> createIntegratedScenario () {
+    
+        Map<String, SObject> records = new Map<String, SObject>(); 
+        
+        
+        Event event = createEvent('teste descricao', 'teste subject', Datetime.now(), Datetime.now());
+        records.put('event', event);
 
+        return records;
 
+    }    
 }

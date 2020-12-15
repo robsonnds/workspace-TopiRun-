@@ -55,7 +55,7 @@ public  class AccountFilterTest {
 
         List<Account> accounts = new List<Account>{
 
-            (Account) records.get('accoutPremiumEvent')
+            (Account) records.get('accountPremiumAboveMillion')
             
 
         };

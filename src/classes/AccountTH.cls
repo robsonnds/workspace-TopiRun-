@@ -61,7 +61,7 @@ public virtual with sharing class AccountTH extends TriggerHandler {
 
         filterByCategoryPremiumAndAnnualRevenue();
 
-        System.debug('Trigger de Conta acionada' + Trigger.operationType );
+        System.debug('Trigger de Conta acionada - Filtro de Contas Premium' + Trigger.operationType );
         System.debug(JSON.serialize ( newAccounts ) );
 
 

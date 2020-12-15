@@ -9,13 +9,9 @@ public with sharing class EventEnricherTest {
 
             List<Account> accounts = new List<Account>{
 
-            (Account) records.get('accoaccoutPremiumEventunt')
+                (Account) records.get('accountPremiumAboveMillion') 
 
-        };
-
-
-        // Event  event = EventFixtureFactory.createEvent('teste', 'teste', '2017-01-07T15:20:45', '2017-01-07T15:20:45'); 
-
+             };
 
          AccountFilter filter = new AccountFilter();
 
@@ -24,28 +20,33 @@ public with sharing class EventEnricherTest {
         
          System.assertEquals(accounts.size(), filteredPremimAccounts.size());
 
-
-        // Account accounts =  AccountFixtureFactory.createAccount('Premium', 100000000 );
-         
-         //EventRepository repository = new EventRepository();
-         
-        // List<Account> accounts = repository.createEvents(events);
-
-            
          System.assert(accounts.size()==1);   
-
 
         }
 
     
+        /* @isTest
+        public static void createEventPremmium(){
+
+            Map<String, SObject> records = AccountFixtureFactory.createIntegratedScenario();
+
+            List<Account> accounts = new List<Account>{
+
+                (Account) records.get('account') 
+
+             };
 
 
+            Account account = new Account();
 
-        //createEventPremmium
+           
+            EventEnricher   eventEnricher = new EventEnricher();
 
-        //createEventForPremiumAccoun
+            eventEnricher.createEventPremmium(accounts);
+            
+            
 
-
+        } */
 
 
 }

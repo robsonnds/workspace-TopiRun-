@@ -76,9 +76,15 @@ public class AccountFixtureFactory {
         records.put ('cnae', cnae);
         
         Account account = createAccount( 'Premium', 150000);
-         records.put ('accoutPremiumEvent', account);
+        records.put ('accountPremiumAboveMillion', account);
+
+        account = createAccount( 'Premium', 60000);
+        records.put ('accountPremiumUnderMillion', account);
+
+        account = createAccount( 'Standard', 10000);
+        records.put ('accountStandard', account);
         
-        Account account = createAccount('Souza Account', '13508213064', city, cnae);
+        account = createAccount('Souza Account', '13508213064', city, cnae);
         records.put ('account', cnae);
         
         return records;
